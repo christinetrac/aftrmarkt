@@ -102,7 +102,7 @@ export const Auction = ({navigation}) => {
                     }}
                     style={styles.input}
                 />
-                <TouchableOpacity style={styles.sell}>
+                <TouchableOpacity style={styles.sell} onPress={() => navigation.navigate('FinishedAuction')}>
                     <Text style={styles.sellText}>Start Selling</Text>
                 </TouchableOpacity>
             </View>
