@@ -98,7 +98,7 @@ export const Product = ({navigation}) => {
                         />
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.sell}>
+                <TouchableOpacity style={styles.sell} onPress={() => navigation.navigate('Auction')}>
                     <Icon
                         name='card-outline'
                         type='ionicon'
