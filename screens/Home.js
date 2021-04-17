@@ -41,17 +41,33 @@ export const Home = ({navigation}) => {
                 <View style={styles.row}>
                     <TouchableOpacity style={[styles.category, {backgroundColor: '#CBD6FF'}]}>
                         <Text style={styles.categoryTag}>Clothing</Text>
+                        <Image
+                            source={require('../assets/clothing.png')}
+                            style={{left: 10, top:10, position: 'absolute', width: 70 + '%', height: 80 + '%'}}
+                        />
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.category, {backgroundColor: '#9CB2FF'}]}>
                         <Text style={styles.categoryTag}>Collectibles</Text>
+                        <Image
+                            source={require('../assets/collectibles.png')}
+                            style={{left: 5, top:15, position: 'absolute', width: 80 + '%', height: 71 + '%'}}
+                        />
                     </TouchableOpacity>
                 </View>
                 <View style={styles.row}>
                     <TouchableOpacity style={[styles.category, {backgroundColor: '#5B7AEA'}]}>
                         <Text style={styles.categoryTag}>Technology</Text>
+                        <Image
+                            source={require('../assets/technology.png')}
+                            style={{left: 15, top:15, position: 'absolute', width: 83 + '%', height: 73 + '%'}}
+                        />
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.category, {backgroundColor: '#4770FF'}]}>
+                    <TouchableOpacity style={[styles.category, {backgroundColor: '#CBD6FF'}]}>
                         <Text style={styles.categoryTag}>Accessories</Text>
+                        <Image
+                            source={require('../assets/accessories.png')}
+                            style={{left: 10, top:0, position: 'absolute', width: 93 + '%', height: 83 + '%'}}
+                        />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -256,6 +272,11 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 9,
         right: 12
+    },
+    categoryImage: {
+        position: 'absolute',
+        width: 70 + '%',
+        height: 80 + '%'
     },
     marketplaceCard: {
         height: 235,
