@@ -107,7 +107,7 @@ export const Product = ({navigation}) => {
                     />
                     <Text style={styles.sellText}>Sell</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.bid}>
+                <TouchableOpacity style={styles.bid} onPress={() => navigation.navigate('Bid')}>
                     <Icon
                         name='stats-chart-outline'
                         type='ionicon'

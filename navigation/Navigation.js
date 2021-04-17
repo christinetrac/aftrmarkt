@@ -4,6 +4,7 @@ import { Home } from "../screens/Home";
 import { Product } from "../screens/Product";
 import { Auction } from "../screens/Auction";
 import { FinishedAuction } from "../screens/FinishedAuction";
+import { Bid } from "../screens/Bid"
 
 const Stack = createStackNavigator();
 
@@ -36,6 +37,15 @@ const Navigation = (props) => {
                               gesturesEnabled: false
                           }}/>
             <Stack.Screen name="FinishedAuction" component={FinishedAuction}
+                          options={{
+                              title: null,
+                              headerStyle: {
+                                  height: 0
+                              },
+                              headerLeft: null,
+                              gesturesEnabled: false
+                          }}/>
+            <Stack.Screen name="Bid" component={Bid}
                           options={{
                               title: null,
                               headerStyle: {
