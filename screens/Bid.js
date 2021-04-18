@@ -44,7 +44,7 @@ export const Bid = ({navigation}) => {
                         style={styles.gradient}
                         start={{ x: -0.4, y: -0.6 }}
                     />
-                    <Text style={styles.auctionHeader}>Complete Sell Auction</Text>
+                    <Text style={styles.auctionHeader}>Place Bid</Text>
                     <Text style={styles.auctionText}>Product Details</Text>
                     <View style={styles.specs}>
                         <View>
@@ -84,7 +84,7 @@ export const Bid = ({navigation}) => {
                         }}
                         style={[styles.input, {paddingLeft:40}]}
                     />
-                    <TouchableOpacity style={styles.sell}>
+                    <TouchableOpacity style={styles.sell} onPress={() => navigation.navigate('FinishedBid')}>
                         <Text style={styles.sellText}>Bid</Text>
                     </TouchableOpacity>
                 </View>
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
         letterSpacing: 0.5,
         fontSize: 10,
         lineHeight: 12,
-        color: '#696767',
+        color: '#C5C5C5',
         textAlign: 'center',
         paddingBottom: 8
     },
@@ -276,7 +276,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
-        marginTop: 30,
+        marginTop: 60,
         flexDirection: 'row'
     },
     sellText: {
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
         fontSize:20,
         fontWeight:"700",
         position: 'absolute',
-        top: 498,
+        top: 387,
         left: 40,
         zIndex: 100
     }

@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
         letterSpacing: 0.5,
         fontSize: 10,
         lineHeight: 12,
-        color: '#696767',
+        color: '#C5C5C5',
         textAlign: 'center',
         paddingBottom: 8
     },
