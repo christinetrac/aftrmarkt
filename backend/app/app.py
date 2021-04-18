@@ -6,8 +6,8 @@ import time
 import contract.contract_util
 
 # Twilio apis
-account_sid = 'AC27ea1aa8f92fdb7c2f83941a60faac5a'
-auth_token = '3deecbefdc0798e40386ebb0ea7de2dc'
+account_sid = ''
+auth_token = ''
 
 app = Flask(__name__)
 CORS(app, resources=r'/*')
@@ -99,8 +99,8 @@ def auctor():
 
     time.sleep(2)
     client.api.account.messages.create(
-        to="6474072923",
-        from_="2133705065",
+        to="623",
+        from_="2065",
         body="aftr markt: Your auction for {} has been placed 🙏. Bids will show here 🎉".format(item)
     )
 
@@ -151,8 +151,8 @@ def bidding():
 
     time.sleep(3)
     client.api.account.messages.create(
-        to="6474072923",
-        from_="2133705065",
+        to="6474",
+        from_="5065",
         body="aftr markt: Your bid for {} has been placed 🙏. Bids will show here 🎉".format(item)
     )
     return {"response" : "success", "tx_hash": (tx_hash).hex()}
