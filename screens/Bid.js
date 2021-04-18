@@ -7,6 +7,35 @@ export const Bid = ({navigation}) => {
     const [quality, setQuality] = useState('new');
     const [bid, setBid] = useState('');
 
+    const sendBid = () => {
+        doBid();
+        navigation.navigate('FinishedBid');
+    };
+
+    const doBid = () => {
+        const request = {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "item":"weweewewe",
+                "buyer":"turbo",
+                "bid":99
+            })
+        };
+
+        fetch('http://35.222.10.206:5000/bidding', request)
+            .then(response => {
+                return response.json()})
+            .then(json => console.log(json))
+            .catch(err => {
+                console.log(err.name);
+                console.log(err.message);
+            })
+    };
+
     return(
         <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:'#242424'}}>
             <View style={styles.container}>
@@ -82,9 +111,10 @@ export const Bid = ({navigation}) => {
                         onChangeText={(text) => {
                             setBid(text);
                         }}
+                        onSubmitEditing={doBid()}
                         style={[styles.input, {paddingLeft:40}]}
                     />
-                    <TouchableOpacity style={styles.sell} onPress={() => navigation.navigate('FinishedBid')}>
+                    <TouchableOpacity style={styles.sell} onPress={sendBid}>
                         <Text style={styles.sellText}>Bid</Text>
                     </TouchableOpacity>
                 </View>

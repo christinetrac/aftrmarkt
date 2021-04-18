@@ -9,6 +9,49 @@ export const Auction = ({navigation}) => {
     const [bid, setBid] = useState('');
     const [duration, setDuration] = useState('');
 
+    const [verification, setVerification] = useState(false);
+    const [status, setStatus] = useState(false);
+
+    const checkVerification = (number) => {
+        setSerialNumber(number);
+        if(number.length === 8) {
+            setTimeout( () => {
+                setStatus(true);
+            }, 1000);
+        }
+    };
+
+    const sendAuction = () => {
+        getVerification();
+        navigation.navigate('FinishedAuction');
+    };
+
+    const getVerification = () => {
+        const request = {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "item": "weweewewe",
+                "owner": "turbo",
+                "bid": 10,
+                "bid_time": 2,
+                "reveal_time": 2
+            })
+        };
+
+        fetch('http://35.222.10.206:5000/auctor', request)
+            .then(response => {
+                return response.json()})
+            .then(json => setVerification(json.response))
+            .catch(err => {
+                console.log(err.name);
+                console.log(err.message);
+            })
+    };
+
     return(
         <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:'#242424'}}>
         <View style={styles.container}>
@@ -78,10 +121,11 @@ export const Auction = ({navigation}) => {
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.auctionText}>Product Serial Number</Text>
+                <View style={status ? styles.statusGreen : styles.statusRed}/>
                 <TextInput
                     value={serialNumber}
                     onChangeText={(text) => {
-                        setSerialNumber(text);
+                        checkVerification(text);
                     }}
                     style={styles.input}
                 />
@@ -102,7 +146,7 @@ export const Auction = ({navigation}) => {
                     }}
                     style={styles.input}
                 />
-                <TouchableOpacity style={styles.sell} onPress={() => navigation.navigate('FinishedAuction')}>
+                <TouchableOpacity style={styles.sell} onPress={sendAuction}>
                     <Text style={styles.sellText}>Start Selling</Text>
                 </TouchableOpacity>
             </View>
@@ -236,6 +280,26 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff',
         position: 'relative'
+    },
+    statusRed: {
+        width: 15,
+        height: 15,
+        borderRadius: 15,
+        position: 'absolute',
+        top: 392,
+        right: 40,
+        backgroundColor: '#FF6565',
+        zIndex: 100
+    },
+    statusGreen: {
+        width: 15,
+        height: 15,
+        borderRadius: 15,
+        position: 'absolute',
+        backgroundColor: '#6AB251',
+        top: 392,
+        right: 40,
+        zIndex: 100
     },
     qualityCircle: {
         width: 15,

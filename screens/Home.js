@@ -119,27 +119,43 @@ export const Home = ({navigation}) => {
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.marketplaceCard}>
-                        <Image
-                            source={require('../assets/vector1.png')}
-                            style={styles.vector1}
-                        />
-                        <Image
-                            source={require('../assets/magikarp.png')}
-                            style={styles.magikarp}
-                        />
-                        <View style={styles.marketplaceText}>
-                            <Text style={styles.marketplaceItem}>Magikarp Pokemon Card</Text>
-                            <View style={{flexDirection: 'row'}}>
-                                <Icon
-                                    name='gift-outline'
-                                    type='ionicon'
-                                    color='#434343'
-                                    size={15}
-                                />
-                                <Text style={styles.marketplaceLabel}>Collectibles</Text>
-                            </View>
+                    <Image
+                        source={require('../assets/vector1.png')}
+                        style={styles.vector1}
+                    />
+                    <Image
+                        source={require('../assets/magikarp.png')}
+                        style={styles.magikarp}
+                    />
+                    <View style={styles.marketplaceText}>
+                        <Text style={styles.marketplaceItem}>Magikarp Pokemon Card</Text>
+                        <View style={{flexDirection: 'row'}}>
+                            <Icon
+                                name='gift-outline'
+                                type='ionicon'
+                                color='#434343'
+                                size={15}
+                            />
+                            <Text style={styles.marketplaceLabel}>Collectibles</Text>
                         </View>
-                    </TouchableOpacity>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.marketplaceCard, {backgroundColor: '#9DB3FF'}]}>
+                    <Image
+                        source={require('../assets/vector1.png')}
+                        style={[styles.vector1, {top: 0}]}
+                    />
+                    <View style={[styles.marketplaceText, {bottom:70, left:25}]}>
+                        <View style={{width: 19, height:19, borderRadius: 19, borderWidth:2, borderColor:'#434343', justifyContent:'center', alignItems:'center', alignSelf:'center'}}>
+                            <Icon
+                                name='more-horiz'
+                                color='#434343'
+                                size={16}
+                            />
+                        </View>
+                        <Text style={[styles.marketplaceItem, {textAlign:'center', marginTop:6}]}>Browse Marketplace</Text>
+                    </View>
+                </TouchableOpacity>
                 </ScrollView>
             </View>
             <View style={styles.tab}>
